@@ -26,17 +26,19 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
+<!-- CHANGE KUBERNETES-->
+		<!-- <dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-openfeign</artifactId>
-		</dependency>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency> -->
+		
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -45,24 +47,25 @@
 			<optional>true</optional>
 		</dependency>
 		
+<!-- CHANGE KUBERNETES-->		
 		<!-- Required for Zipkin-->		
 <!-- Connecting currency exchange with Zipkin -->
 		<!-- https://mvnrepository.com/artifact/io.micrometer/micrometer-tracing-bridge-brave -->
-		<dependency>
+		<!-- <dependency>
 		    <groupId>io.micrometer</groupId>
 		    <artifactId>micrometer-tracing-bridge-brave</artifactId>
-		</dependency>
+		</dependency> -->
 		<!-- https://mvnrepository.com/artifact/io.zipkin.reporter2/zipkin-reporter-brave -->
-		<dependency>
+		<!-- <dependency>
 		    <groupId>io.zipkin.reporter2</groupId>
 		    <artifactId>zipkin-reporter-brave</artifactId>
-		</dependency>
+		</dependency>-->
 <!-- End for Zipkin -->	
 <!-- Rabbit MQ -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework.amqp</groupId>
 			<artifactId>spring-rabbit</artifactId>
-		</dependency>	
+		</dependency> -->	
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
