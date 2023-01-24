@@ -30,7 +30,12 @@ public class CurrencyExchangeController {
 			throw new RuntimeException("Unable to Find data form " + from + " to " + to);
 		}
 		 String port = environment.getProperty("local.server.port");
-		 currencyExchange.setEnvironment(port);
+		 
+		 // CHANGE-JUBERNETES
+		 String host = environment.getProperty("HOSTNAME");
+		 String version = "v11";
+		 
+		 currencyExchange.setEnvironment(port + " " + version + " " + host);
 		 return currencyExchange;
 	}
 
