@@ -16,9 +16,9 @@ spec:
     matchLabels:
       app: currency-exchange  # Deployment is applicable for all the pods which have this matching lable
   strategy:
-    rollingUpdate:  # how an update to this deployment is done
+    rollingUpdate:  # how an update, to this deployment is done
       maxSurge: 25%  # how many new instances be created when we are doing release
-      maxUnavailable: 25%  # how many can be unavailable when we are doing the release
+      maxUnavailable: 25%  # how many instances can be unavailable when we are doing the release
     type: RollingUpdate
   template:
     metadata:
@@ -31,7 +31,7 @@ spec:
         name: kubernetes-currency-exchange-service
       restartPolicy: Always # if there is any problem with the container you can restart them.
 
-# Add 3 hyphen(-) below to seperate deployment from service. 
+# Add 3 hyphen(-) below to seperate deployment from service deployment script. 
 # Added deployment script for service details below. Below kubectl code will generate the deployment script for the service.
 # D:\workspace\kubernetes\currency-exchange-service>kubectl get service currency-exchange -o yaml >> service.yaml
 ---
@@ -43,11 +43,11 @@ metadata:
   labels:
     app: currency-exchange
   name: currency-exchange
-  namespace: default
+  namespace: default 
 spec:
   allocateLoadBalancerNodePorts: true
   ports:
-    port: 8000
+  - port: 8000
     protocol: TCP
     targetPort: 8000
   selector:
