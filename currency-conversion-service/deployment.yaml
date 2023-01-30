@@ -29,9 +29,13 @@ spec:
       - image: placidpj/kubernetes-currency-conversion-service:0.0.12-SNAPSHOT
         imagePullPolicy: IfNotPresent
         name: kubernetes-currency-conversion-service
-        env:
-        - name: CURRENCY_EXCHANGE_URI
-          value: http://currency-exchange
+        envFrom:
+          - configMapRef:
+              name: currency-conversion
+# configMap will replace this.        
+#        env:
+#        - name: CURRENCY_EXCHANGE_URI
+#          value: http://currency-exchange
       restartPolicy: Always # if there is any problem with the container you can restart them.
 
 # Add 3 hyphen(-) below to seperate deployment from service deployment script. 
@@ -57,3 +61,17 @@ spec:
     app: currency-conversion  # On above ports expose deployment that matches this lables.
   sessionAffinity: None  # For web application we want sessionAffinity because in one session all the requests must go to same instance.
   type: LoadBalancer  # Type of the service we want to use is load balancer.
+
+---
+# This is used in CurrencyExchangeProxy. And as it is running withing kubernetes, so with currency-exchange service name 
+# it will find the IP and connect.
+apiVersion: v1
+data:
+  CURRENCY_EXCHANGE_URI: http://currency-exchange    
+kind: ConfigMap
+metadata:
+  name: currency-conversion
+  namespace: default
+  
+  
+  
