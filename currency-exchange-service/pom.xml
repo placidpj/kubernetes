@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.example</groupId>
 	<artifactId>currency-exchange-service</artifactId>
-	<version>0.0.12-SNAPSHOT</version> <!-- CHANGE KUBERNETES-->
+	<version>0.0.14-SNAPSHOT</version> <!-- CHANGE KUBERNETES-->
 	<name>currency-exchange-service-kubernetes</name>  <!-- CHANGE KUBERNETES-->
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -43,10 +43,10 @@
 <!-- Required for Zipkin-->		
 <!-- Connecting currency exchange with Zipkin -->
 		<!-- https://mvnrepository.com/artifact/io.micrometer/micrometer-tracing-bridge-brave -->
-		<!--<dependency>
+		<dependency>
 		    <groupId>io.micrometer</groupId>
 		    <artifactId>micrometer-tracing-bridge-brave</artifactId>
-		</dependency>-->
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/io.zipkin.reporter2/zipkin-reporter-brave -->
 		<!--<dependency>
 		    <groupId>io.zipkin.reporter2</groupId>

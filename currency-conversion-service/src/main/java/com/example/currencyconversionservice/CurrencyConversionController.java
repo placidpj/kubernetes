@@ -3,6 +3,8 @@ package com.example.currencyconversionservice;
 import java.math.BigDecimal;
 import java.util.HashMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,8 @@ import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class CurrencyConversionController {
+	
+	private Logger logger = LoggerFactory.getLogger(CurrencyConversionController.class);
 	
 	@Autowired
 	private CurrencyExchangeProxy currencyExchangeProxy;
@@ -40,6 +44,9 @@ public class CurrencyConversionController {
 			@PathVariable String from,
 			@PathVariable String to,
 			@PathVariable BigDecimal quantity) {
+		
+		//CHANGE-KUBERNETES
+				logger.info("calculateCurrencyConversionFeign called with {} to {} with {}", from, to, quantity);
 		
 		CurrencyConversion currencyConversion = currencyExchangeProxy.retrieveExchangeValue(from, to);
 		
