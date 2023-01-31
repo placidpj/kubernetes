@@ -37,6 +37,9 @@ spec:
           httpGet:
             port: 8000
             path: /actuator/health/liveness
+        resources:
+          requests:
+            cpu: "5m"
       restartPolicy: Always # if there is any problem with the container you can restart them.
 
 # Add 3 hyphen(-) below to seperate deployment from service deployment script. 
